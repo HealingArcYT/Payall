@@ -29,17 +29,19 @@ public class Commands extends PluginBase {
   public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
     if (command.getName().toLowerCase() == "payall") {
       if (sender instanceof Player) {
-        Integer amount = Integer.valueOf(args[0]);
-        if (this.getServer().getOnlinePlayers().size()*amount <= this.economyapi.myMoney(sender.getName())) {
-          this.economyapi.reduceMoney(sender.getName(), this.getServer().getOnlinePlayers().size()*amount);
-          for (Player player : this.getServer().getOnlinePlayers().values()) {
-            this.economyapi.addMoney(player.getName(), amount);
+        if (sender.getPlayer().hasPermission("payall.online")) {
+          Integer amount = Integer.valueOf(args[0]);
+          if (this.getServer().getOnlinePlayers().size()*amount <= this.economyapi.myMoney(sender.getName())) {
+            this.economyapi.reduceMoney(sender.getName(), this.getServer().getOnlinePlayers().size()*amount);
+            for (Player player : this.getServer().getOnlinePlayers().values()) {
+              this.economyapi.addMoney(player.getName(), amount);
+            }
           }
+          else {
+            sender.sendMessage("Du hast nicht genug Geld dafür");
+          }
+          return true;
         }
-        else {
-          sender.sendMessage("Du hast nicht genug Geld dafür");
-        }
-        return true;
       }
 
       else {

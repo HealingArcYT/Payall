@@ -29,19 +29,18 @@ commands:
     description: Payall command from Server Balance
     usage: "/consolepayall <amount>"
     permission: payall.console.online
-    permission-message: "Dieser Befehl existiert nicht"
 permissions:
   payall:
     description: "general permission for payall"
-    default: false
+    default: op
     children:
       payall.online:
         description: "For online Players"
-        default: false
+        default: op
       payall.console:
         description: "Not from own account"
-        default: false
+        default: op
         children:
           payall.console.online:
             description: "For online Players"
-            default: false
+            default: op
