@@ -15,15 +15,15 @@ public class Commands extends PluginBase {
   public void onEnable() {
   this.economyapi = EconomyAPI.getInstance();
 
-/*    try {
+  /*try {
       this.economyapi = EconomyAPI.getInstance();
     }
     finally {
       this.getServer().getLogger().info(TextFormat.RED + "EconomyAPI konnte nicht verwendet werden");
       this.getServer().getLogger().info("Deaktiviert");
       this.getServer().getPluginManager().disablePlugin(this);
-    }
-  }*/
+    }*/
+  }
 
   @Override
   public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
