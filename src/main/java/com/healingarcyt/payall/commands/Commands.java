@@ -6,6 +6,8 @@ import cn.nukkit.Player;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.TextFormat;
 
+import me.onebone.economyapi.EconomyAPI;
+
 public class Commands extends PluginBase {
   private EconomyAPI economyapi;
 
