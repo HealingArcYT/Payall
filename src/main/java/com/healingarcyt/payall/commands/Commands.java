@@ -29,9 +29,9 @@ public class Commands extends PluginBase {
       if (sender instanceof Player) {
         Integer amount = Integer.valueOf(args[0]);
         if (this.getServer().getOnlinePlayers().size()*amount <= this.economyapi.myMoney(sender)) {
-          this.economyapi.reduceMoney(sender, this.getServer().getOnlinePlayers().size()*amount);
+          this.economyapi.reduceMoney(sender.getName(), this.getServer().getOnlinePlayers().size()*amount);
           for (Player player : this.getOnlinePlayers().values()) {
-            this.economyapi.addMoney(player, amount);
+            this.economyapi.addMoney(player.getName(), amount);
           }
         }
         else {
@@ -47,7 +47,7 @@ public class Commands extends PluginBase {
     if (command.getName().toLowerCase() == "consolepayall") {
       Integer amount = Integer.valueOf(args[0]);
       for (Player player : this.getOnlinePlayers().values()) {
-        this.economyapi.addMoney(player, amount);
+        this.economyapi.addMoney(player.getName(), amount);
       }
     }
   }
