@@ -28,7 +28,7 @@ public class Commands extends PluginBase {
     if (command.getName().toLowerCase() == "payall") {
       if (sender instanceof Player) {
         Integer amount = Integer.valueOf(args[0]);
-        if (this.getServer().getOnlinePlayers().size()*amount <= this.economyapi.myMoney(sender)) {
+        if (this.getServer().getOnlinePlayers().size()*amount <= this.economyapi.myMoney(sender.getName())) {
           this.economyapi.reduceMoney(sender.getName(), this.getServer().getOnlinePlayers().size()*amount);
           for (Player player : this.getServer().getOnlinePlayers().values()) {
             this.economyapi.addMoney(player.getName(), amount);
