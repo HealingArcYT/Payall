@@ -29,7 +29,8 @@ public class Commands extends PluginBase {
   public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
     if (command.getName().toLowerCase() == "payall") {
       if (sender instanceof Player) {
-        if (sender.getPlayer().hasPermission("payall.online")) {
+        Player playersender = (Player) sender;
+        if (playersender.hasPermission("payall.online")) {
           Integer amount = Integer.valueOf(args[0]);
           if (this.getServer().getOnlinePlayers().size()*amount <= this.economyapi.myMoney(sender.getName())) {
             this.economyapi.reduceMoney(sender.getName(), this.getServer().getOnlinePlayers().size()*amount);
