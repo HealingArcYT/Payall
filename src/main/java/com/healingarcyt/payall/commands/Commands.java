@@ -37,6 +37,7 @@ public class Commands extends PluginBase {
         else {
           sender.sendMessage("Du hast nicht genug Geld dafür");
         }
+        return true;
       }
       else {
         sender.sendMessage("Nur als Spieler ausführbar");
@@ -49,6 +50,7 @@ public class Commands extends PluginBase {
       for (Player player : this.getServer().getOnlinePlayers().values()) {
         this.economyapi.addMoney(player.getName(), amount);
       }
+      return true;
     }
   }
 }
