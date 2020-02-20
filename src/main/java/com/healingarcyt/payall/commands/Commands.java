@@ -39,6 +39,7 @@ public class Commands extends PluginBase {
         }
         return true;
       }
+
       else {
         sender.sendMessage("Nur als Spieler ausführbar");
         return true;
@@ -52,5 +53,6 @@ public class Commands extends PluginBase {
       }
       return true;
     }
+    return true;
   }
 }
