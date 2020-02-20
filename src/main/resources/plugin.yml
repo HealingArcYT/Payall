@@ -1,0 +1,47 @@
+#name, main, version and api are required
+name: Pay@ll
+main: com.healingarcyt.payall.Payall
+#remember version and api is string, don't write it like this: 1.0.0, or there will be an exception
+version: "1.0.0"
+api: ["1.0.5"]
+load: POSTWORLD
+author: HealingArcYT
+# Authors and author will be added together in one list.
+#authors: ["Example", "Another"]
+description: Plugin using EconomyAPI to pay all Players a defined amount of money
+website: https://github.com/NukkitX/ExamplePlugin
+# These dependencies are required for the plugin to start.
+#depend: ["OtherPlugin", "ThisPlugin"]
+# These dependencies are not required.
+depend: ["EconomyAPI"]
+# Log prefix in console
+prefix: "Pay@ll"
+# Plugin will be loaded before these. Any cyclic loadbefore's or dependencies's will throw errors!
+#loadbefore: ["ImportantPlugin"]
+
+commands:
+  payall:
+    description: Payall command
+    usage: "/payall <amount>"
+    permission: payall.online
+    permission-message: "Dieser Befehl existiert nicht"
+  consolepayall:
+    description: Payall command from Server Balance
+    usage: "/consolepayall <amount>"
+    permission: payall.console.online
+    permission-message: "Dieser Befehl existiert nicht"
+permissions:
+  payall:
+    description: "general permission for payall"
+    default: false
+    children:
+      payall.online:
+        description: "For online Players"
+        default: false
+      payall.console:
+        description: "Not from own account"
+        default: false
+        children:
+          payall.console.online:
+            description: "For online Players"
+            default: false
