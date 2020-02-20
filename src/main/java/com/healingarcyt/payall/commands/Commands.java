@@ -13,7 +13,9 @@ public class Commands extends PluginBase {
 
   @Override
   public void onEnable() {
-    try {
+  this.economyapi = EconomyAPI.getInstance();
+
+/*    try {
       this.economyapi = EconomyAPI.getInstance();
     }
     finally {
@@ -21,7 +23,7 @@ public class Commands extends PluginBase {
       this.getServer().getLogger().info("Deaktiviert");
       this.getServer().getPluginManager().disablePlugin(this);
     }
-  }
+  }*/
 
   @Override
   public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
