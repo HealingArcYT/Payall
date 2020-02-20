@@ -6,7 +6,7 @@ import cn.nukkit.Player;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.TextFormat;
 
-class Commands extends PluginBase {
+public class Commands extends PluginBase {
   private EconomyAPI economyapi;
 
   @Override
@@ -41,7 +41,7 @@ class Commands extends PluginBase {
         return true;
       }
     }
-    
+
     if (command.getName().toLowerCase() == "consolepayall") {
       Integer amount = Integer.valueOf(args[0]);
       for (Player player : this.getOnlinePlayers().values()) {
