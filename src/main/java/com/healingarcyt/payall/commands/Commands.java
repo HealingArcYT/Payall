@@ -30,7 +30,7 @@ public class Commands extends PluginBase {
         Integer amount = Integer.valueOf(args[0]);
         if (this.getServer().getOnlinePlayers().size()*amount <= this.economyapi.myMoney(sender)) {
           this.economyapi.reduceMoney(sender.getName(), this.getServer().getOnlinePlayers().size()*amount);
-          for (Player player : this.getOnlinePlayers().values()) {
+          for (Player player : this.getServer().getOnlinePlayers().values()) {
             this.economyapi.addMoney(player.getName(), amount);
           }
         }
@@ -46,7 +46,7 @@ public class Commands extends PluginBase {
 
     if (command.getName().toLowerCase() == "consolepayall") {
       Integer amount = Integer.valueOf(args[0]);
-      for (Player player : this.getOnlinePlayers().values()) {
+      for (Player player : this.getServer().getOnlinePlayers().values()) {
         this.economyapi.addMoney(player.getName(), amount);
       }
     }
